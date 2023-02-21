@@ -1,0 +1,21 @@
+//pull quita elementos a un array
+use("platzi_store")
+
+
+//remover 1 item
+// db.inventory.updateMany({}, { //si la query esta vacia trae todo lo que haya
+//         $pull: {
+//             tags: "book"
+//         }
+//     } 
+// )
+
+//remover varios items
+db.inventory.updateMany({}, { //si la query esta vacia trae todo lo que haya
+        $pull: {
+             tags: {
+                $in: ["school", "pusheado"]
+             } 
+        }
+    } 
+)

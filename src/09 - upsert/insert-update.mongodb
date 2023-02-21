@@ -1,0 +1,25 @@
+//digamos que tenemos una info con un array
+//si es la 1era lectura del día hay que insertar el dato
+
+db.iot.insertOne({
+  sensor: "A001",
+  date: "2022-01-03",
+}, {
+  $push: { //<==== si quisieramos removerlo del array se puede usar $pop con valor 1 para el final y -1 para el principio
+    readings: 2323
+  }
+})
+
+//si tenemos  la misma fecha y sensor deberiamos updatear
+//esto es un problema ya que son 2 operaciones distintas 
+// db.iot.updateOne({
+//   sensor: "A001",
+//   date: "2022-01-03",
+// }, {
+//   $push: {
+//     readings: 2323 //<==== cuando se hace el push para agregar va sin corchetes
+//   }
+// })
+
+//en el archivo upsert esta la soucion donde resumimos estas
+//2 operaciones en 1

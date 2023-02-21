@@ -1,0 +1,26 @@
+use("sample_training")
+
+//$set no solo modifica valores sino que permite agregar nuevos campos
+
+// db.zips.updateMany({city: "CLEVELAND"},
+//     {$set: {
+//         updateMany: "updated"        
+//         }}
+// )
+
+// $rename
+// db.zips.updateMany({city: "CLEVELAND"},
+//     {$rename: {
+//         updateMany: "new_data"        
+//         }}
+// )
+
+
+//$unset eleimina el atributo
+db.zips.updateMany({city: "CLEVELAND"},
+    {$unset: {
+        new_data: ""        
+        }}
+)
+
+db.zips.find({city: "CLEVELAND"})

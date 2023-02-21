@@ -1,0 +1,13 @@
+instalar mongo 1era vez que se ejecuta
+luego seria para levantar la conexcion
+
+comando:
+docker-compose up -d mongodb
+
+comando:ps para ver si esta corriendo
+
+luego en mongo compas
+
+mongodb://root:root123localhost:27017
+
+configurar clave y tls off

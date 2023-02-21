@@ -1,0 +1,16 @@
+use("platzi_store")
+
+//using eq (igual a) este se usa de forma implicita en cualquier busqueda
+//asi:
+//db.inventory.find({ qty: 20})
+//es lo mismo que usar
+//db.inventory.find({ qty: {$eq: 20}})
+
+//usando ne (no igual a)
+//db.inventory.find({ qty: {$ne: 20}})//todo lo que no tenga 20
+
+//los sub items se acceden con comillas
+
+db.inventory.find({ "item.name": {$ne: "xy"}})
+
+//con ne o eq se pueden usar con delete o update etc

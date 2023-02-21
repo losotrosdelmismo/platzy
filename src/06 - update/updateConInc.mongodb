@@ -1,0 +1,14 @@
+use("platzi_store")
+
+//incrementa un valor que indiquemos
+db.products.updateOne(
+        {_id:1},
+        {$inc:
+            { price: 10}
+        }        
+    )
+
+db.products.find();
+
+//en estos casos usamos un ID propio para hacer la query pero si tenemos que usar el de mongo podemos usar:
+// { "_id": ObjectId("63e91131ae0786ce88df4944") },

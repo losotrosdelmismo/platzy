@@ -1,0 +1,10 @@
+use("platzi_store")
+
+//tenesmos gt(greater than <) gte greater than equal <=
+//tenesmos lt(less than >) lte less than equal >=
+
+//db.inventory.find({_id: { $lt: 4}})
+ 
+//se pueden combinar
+
+db.inventory.find({_id: { $lt: 4, $gt: 2}})

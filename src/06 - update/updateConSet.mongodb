@@ -1,0 +1,23 @@
+use("platzi_store")
+
+// db.products.updateOne({_id:4}, {/**
+//  * field: The field name
+//  * expression: The expression.
+//  */
+// $set: {
+//   name: "update name"
+// }})
+
+
+//update one solo actualiza el 1 elemento que cumpla la condicion
+//si lo cambiomos por udate man cambio todo lo que cumpla determinado condicion
+db.products.updateMany(
+        {price: 1}, 
+        {$set:
+            {name: "update name"}
+        }
+    )
+
+//$inc incrementa al valor que le indiquemos
+
+db.products.find();

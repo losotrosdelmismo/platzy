@@ -1,0 +1,15 @@
+//METODO UPSERT mongo identifica si el dato no existe lo crea
+//sino lo updatea para ello ingresar true 
+
+use("platzi_store")
+
+db.iot.updateOne({
+   "sensor": "A001",
+    "date": "2022-01-04" 
+},{
+    $push:{
+        reading: 444
+    }
+},{
+    upsert: true //<====== AQUI ==============
+})

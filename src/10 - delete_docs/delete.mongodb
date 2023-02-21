@@ -1,0 +1,7 @@
+use("platzi_store")
+
+db.products.deleteOne({price: 100})//query para eliminar el 1ero los que cumplan la condicion
+
+db.products.deleteMany({price: 100})//query para eliminar todos los que cumplan la condicion
+
+db.products.drop() //elimina toda la coleccion

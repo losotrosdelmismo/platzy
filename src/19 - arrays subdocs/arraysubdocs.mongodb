@@ -1,0 +1,20 @@
+use("sample_training")
+
+// db.companies.find({
+//     //el 0 es la 1era posicion del array
+//     "relationships.0.person.first_name": "Mark"    
+// }, {
+//         name:1,
+//         relationships: 1
+//     }).count() 
+    //0 es el presidente de la empresa 
+    //pero si quiero saber las personas relacionadas con la empresa?
+
+db.companies.find({
+ relationships: {
+        $elemMatch: {"person.first_name": "Mark"}
+    }    
+}, {
+        name:1,
+        relationships: 1
+    }).count() 

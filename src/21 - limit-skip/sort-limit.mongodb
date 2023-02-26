@@ -1,0 +1,7 @@
+use("sample_training")
+
+db.zips
+.find({ pop: { $gte: 100 } })
+.sort({ pop: -1 })
+.skip(0)//para paginacion web *** arranca en el elemento 0 cuando va a la siguiente pagina se le pone skip 2 y limit se mantiene igual
+.limit(2) // tre 2 elementos

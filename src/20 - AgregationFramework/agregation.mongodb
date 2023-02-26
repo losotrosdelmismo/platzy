@@ -1,0 +1,40 @@
+use("sample_airbnb")
+
+//consulta con projeccion comun
+// db.listingsAndReviews.find({
+//     amenities: "Wifi"
+// },{
+//     price: 1,
+//     amenities: 1
+// })
+
+//agreggation
+//[],[],[] 
+//esto da el mismo resultado
+// db.listingsAndReviews.aggregate([
+//     {/**
+//      * query: The query in MQL.
+//      */
+//     $match: {
+//       amenities: "Wifi"
+//     }},{
+//         /**
+//          * specifications: The fields to
+//          *   include or exclude.
+//          */
+//         $project: {
+//           price: 1, amenities: 1
+//         }
+//     }
+// ],)
+
+//la ventaja de agregatte es el trabajo por capas
+db.listingsAndReviews.aggregate([
+    { $match: { amenities: "Wifi" }}, //find
+    { $project: { address: 1 }}, //project
+    {/**
+     * _id: The id of the group.
+     * fieldN: The first field name.
+     */
+    $group: {  _id: "$address.country", count: { $sum: 1} }}
+])//el resultado son todos los paises que tienen wifi

@@ -1,0 +1,38 @@
+use("sample_training")
+
+//ejemplo and solo agregas a la query con una coma (&& implicito)
+// db.inspections.find({
+//     sector: "Tax Preparers - 891",
+//     result: "Unable to Locate"
+// }).count()
+
+//&& explicito ES LO MISMO
+// db.inspections.find({
+//     {$and:
+//         [
+    //         sector: "Tax Preparers - 891",
+    //         result: "Unable to Locate"
+//          ]
+//     }
+// }).count()
+
+//OR {[{},{},{},{}]}
+// db.inspections.find({
+//     $or:[
+//         {sector: "Tax Preparers - 891"},
+//         {result: "Unable to Locate"}
+//     ]
+// }).count()
+
+//NOR devuelve todo lo que no cumpla la condicion
+// db.inspections.find({
+//     $nor:[
+//         {sector: "Tax Preparers - 891"},
+//         {result: "Unable to Locate"}
+//     ]
+// }).count()
+
+//$not niega un atributo (mo usa arrays)
+// db.inspections.find({
+//     sector: {$not: {$regex: /"Tax Preparers - 891"/i}}
+// }).count()

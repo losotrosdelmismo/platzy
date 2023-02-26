@@ -1,0 +1,12 @@
+use("sample_training")
+
+//la projeccion indica que atributo queremos como resultado
+//si pone 1 para lo que queremos ver y 0 para lo que no
+db.trips.find(
+    //query
+    {tripduration: 694},
+    //projection
+    {bikeid: 1,
+     _id: 0 //_id siempre viene por defecto a menos que le indiquemos lo contrario
+    }
+)

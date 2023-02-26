@@ -1,0 +1,11 @@
+use("platzi_store")
+use("platzi_store")
+//busca parte del texto usa expreciones regulares el i es para que ignore el case sensitive
+//db.inventory.find({"item.description": { $regex: /spAces/i }})
+//que termine en ...
+//db.inventory.find({"item.description": { $regex: /line$/i }})
+//que empiece con ...
+//db.inventory.find({"item.description": { $regex: /^single/i }})
+//los \n son saltos de lines con la banderita m los podemos tener en cuenta
+//ej todos lo que empiece con "s" incluyendo los saltos de linea
+db.inventory.find({"item.description": { $regex: /^s/im }})

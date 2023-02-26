@@ -1,0 +1,20 @@
+use("platzi_store")
+
+
+//consulta normal
+//db.monthlyBudget.find({spent: {$gte: 100}})
+
+//expresive op (mismo result)
+// db.monthlyBudget.find({
+//     $expr: {
+//         $gte: ["$spent", 100]
+//     }
+// })
+
+//hasta ahi todo igual
+//pero el expresive operator permite comparar valores
+db.monthlyBudget.find({
+    $expr: {
+        $gte: ["$spent", "$budget"] //osea traer valores que superen el buget
+    }
+})

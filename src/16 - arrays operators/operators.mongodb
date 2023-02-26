@@ -1,0 +1,25 @@
+use("platzi_store")
+//$in que tenga ... sirve para ver values, objects y arrays
+//value
+//db.inventory.find({qty: {$in: [5, 20]}})
+//array
+//db.inventory.find({tags: {$in: ["book", "appliance"]}})
+
+//$nin que no tenga ... sirve para ver values, objects y arrays
+//db.inventory.find({tags: {$nin: ["book", "appliance"]}})
+
+//en arraus se pueden buscar los valores directamente
+//db.inventory.find({tags: "bag"})
+//pero si es mas de 1 valor tiene que estar en orden
+//db.inventory.find({tags: ["school", "book"]})//da resultado
+//db.inventory.find({tags: ["book", "school"]})//no da resultado
+
+//para eso usamos operadores de arrays:
+//$all funciona como &&
+//db.inventory.find({tags: {$all: ["book", "school"]}})
+//busqueda por $size (lenght) ?? se puede combinar con gt ly??
+//db.inventory.find({tags: {$size: 2}})
+
+//$elemMatch machea resul dentro de objetos
+db.survey.find({results: {$elemMatch: {product: "xyz", score: {$gte: 7}}}})
+
